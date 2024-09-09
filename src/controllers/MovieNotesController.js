@@ -91,4 +91,4 @@ class MovieNotesController {
 	}
 }
 
-module.exports = NotesController;
+module.exports = MovieNotesController;
