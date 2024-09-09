@@ -1,11 +1,22 @@
 const { response } = require("express");
 const knex = require("../database/knex");
+const AppError = require("../utils/AppError");
 
 class MovieNotesController {
 	async create(request, response) {
 		const { title, description, rating, movie_tags } = request.body;
 
 		const { user_id } = request.params;
+
+		console.log(rating > 5)
+
+		if (!rating) {
+			throw new AppError("É necessário preencher a avaliação");
+		}
+
+		if (rating < 1 || rating > 5) {
+			throw new AppError("Avaliação deve ser entre 1 a 5");
+		}
 
 		const [note_id] = await knex("movie_notes").insert({
 			title,
