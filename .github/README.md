@@ -1,6 +1,6 @@
 ## 🖥️ Projeto
 
-O projeto **"MovieScore"** é uma API desenvolvida em Node.js utilizando o framework Express para gerenciar um sistema de notas de filmes e tags, além de um sistema de gerenciamento de usuários. O projeto permite que usuários criem e gerenciem suas notas sobre filmes, associando tags às notas para uma melhor organização e filtragem. Este projeto foi realizado para conclusão do desafio do Stage 08 da trilha Explorer da Rocketseat.
+O projeto **"RocketMovies"** é uma API desenvolvida em Node.js utilizando o framework Express para gerenciar um sistema de notas de filmes e tags, além de um sistema de gerenciamento de usuários. O projeto permite que usuários criem e gerenciem suas notas sobre filmes, associando tags às notas para uma melhor organização e filtragem. Este projeto foi realizado para conclusão do desafio do Stage 08 da trilha Explorer da Rocketseat.
 
 ## 🚀 Tecnologias
 
@@ -26,11 +26,11 @@ Para testar esse projeto, é necessário ter o NodeJS e o Insomnia instalados, c
 
 - Clone o projeto e acesse a pasta do mesmo:
 ```
-$ git clone https://github.com/arauujo/MovieScore.git
-$ cd MovieScore
+$ git clone https://github.com/arauujo/api-rocketmovies.git
+$ cd api-rocketmovies
 ```
 
-- Inicie o MovieScore:
+- Inicie a API:
 ```
 $ npm install
 $ npm run dev
