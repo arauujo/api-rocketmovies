@@ -5,10 +5,7 @@ const AppError = require("../utils/AppError");
 class MovieNotesController {
 	async create(request, response) {
 		const { title, description, rating, movie_tags } = request.body;
-
-		const { user_id } = request.params;
-
-		console.log(rating > 5)
+		const user_id = request.user.id;
 
 		if (!rating) {
 			throw new AppError("É necessário preencher a avaliação");
@@ -61,7 +58,8 @@ class MovieNotesController {
 	}
 
 	async index(request, response) {
-		const { title, user_id, movie_tags } = request.query;
+		const { title, movie_tags } = request.query;
+		const user_id = request.user.id;
 
 		let movieNotes;
 
