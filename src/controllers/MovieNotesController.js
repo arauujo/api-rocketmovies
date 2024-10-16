@@ -30,7 +30,7 @@ class MovieNotesController {
 					name,
 				};
 			});
-			
+
 			await knex("movie_tags").insert(movieTagsInsert);
 		}
 
@@ -45,9 +45,16 @@ class MovieNotesController {
 			.where({ note_id: id })
 			.orderBy("name");
 
+		const { user_id } = movieNote;
+		const userData = await knex("users")
+			.select("name", "avatar")
+			.where({ id: user_id })
+			.first();
+
 		return response.json({
 			...movieNote,
 			movieTags,
+			userData,
 		});
 	}
 
@@ -71,14 +78,16 @@ class MovieNotesController {
 		const allMovieTags = await knex("movie_tags");
 
 		const movieNotesWithTags = movieNotes.map((note) => {
-			const movieNoteTags = allMovieTags.filter((tag) => tag.note_id === note.id);
+			const movieNoteTags = allMovieTags.filter(
+				(tag) => tag.note_id === note.id,
+			);
 
 			return {
 				...note,
 				tags: movieNoteTags,
 			};
 		});
-
+		
 		return response.json(movieNotesWithTags);
 	}
 }
