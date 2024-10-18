@@ -7,6 +7,7 @@ const UsersController = require("../controllers/UsersController");
 const UserAvatarController = require('../controllers/UserAvatarController');
 const usersRoutes = Router();
 const usersController = new UsersController();
+const userAvatarController = new UserAvatarController();
 
 usersRoutes.post("/", usersController.create);
 usersRoutes.put("/", ensureAuthenticated, usersController.update);
