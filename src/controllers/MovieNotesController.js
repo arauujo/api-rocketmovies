@@ -4,7 +4,7 @@ const AppError = require("../utils/AppError");
 
 class MovieNotesController {
 	async create(request, response) {
-		const { title, description, rating, movie_tags } = request.body;
+		const { title, description, rating, movie_tags, created_at, updated_at } = request.body;
 		const user_id = request.user.id;
 
 		if (!rating) {
@@ -20,6 +20,8 @@ class MovieNotesController {
 			description,
 			rating,
 			user_id,
+			created_at,
+			updated_at,
 		});
 
 		if (movie_tags.length > 0) {
